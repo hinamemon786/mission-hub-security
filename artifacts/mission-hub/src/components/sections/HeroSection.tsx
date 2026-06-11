@@ -1,62 +1,54 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Lock } from "lucide-react";
-import { useState, useEffect } from "react";
 
 export function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
     <section className="relative min-h-screen pt-24 flex items-center overflow-hidden bg-[#0a0a0f]">
-      {/* Animated background gradient */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 255, 136, 0.15), transparent 50%)`,
-        }}
-      />
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      >
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
 
-      {/* Grid background */}
+      {/* Dark overlay so text is legible */}
+      <div className="absolute inset-0 bg-[#0a0a0f]/75" style={{ zIndex: 1 }} />
+
+      {/* Green grid overlay */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
+          zIndex: 2,
           backgroundImage: `
-            linear-gradient(rgba(0,255,136,0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,255,136,0.1) 1px, transparent 1px)
+            linear-gradient(rgba(0,255,136,0.12) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,255,136,0.12) 1px, transparent 1px)
           `,
           backgroundSize: "50px 50px",
         }}
       />
 
-      {/* Animated orbs */}
+      {/* Subtle green glow top-right */}
       <motion.div
-        className="absolute top-20 right-20 w-72 h-72 bg-[#00ff88]/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.3, 0.5, 0.3],
-        }}
+        className="absolute top-20 right-20 w-72 h-72 bg-[#00ff88]/10 rounded-full blur-3xl pointer-events-none"
+        style={{ zIndex: 2 }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-40 left-20 w-96 h-96 bg-[#00d4ff]/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.2, 0.4, 0.2],
-        }}
+        className="absolute bottom-40 left-20 w-96 h-96 bg-[#00d4ff]/8 rounded-full blur-3xl pointer-events-none"
+        style={{ zIndex: 2 }}
+        animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.35, 0.2] }}
         transition={{ duration: 10, repeat: Infinity }}
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full" style={{ zIndex: 3 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +78,7 @@ export function HeroSection() {
           </h1>
 
           {/* Description */}
-          <p className="text-lg text-gray-400 mb-8 max-w-2xl leading-relaxed">
+          <p className="text-lg text-gray-300 mb-8 max-w-2xl leading-relaxed">
             Mission Hub Digital Solution provides comprehensive cybersecurity services
             including penetration testing, vulnerability assessment, SOC setup, and
             incident response. Protect your organization with expert security audits
@@ -133,6 +125,7 @@ export function HeroSection() {
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        style={{ zIndex: 3 }}
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
