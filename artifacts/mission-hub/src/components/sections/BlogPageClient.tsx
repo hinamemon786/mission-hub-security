@@ -5,8 +5,8 @@ import { Calendar, ArrowRight, Tag } from "lucide-react";
 const blogPosts = [
   {
     id: 1,
-    title: "WordPress Hacked Kyun Hoti Hai? (اور Kaise Bachein)",
-    excerpt: "Pakistan mein 80% websites WordPress pe hain — aur 90% hacks outdated plugins ki wajah se hote hain. Is guide mein janiye exact reasons aur step-by-step fix.",
+    title: "Why Does WordPress Get Hacked? (And How to Stay Safe)",
+    excerpt: "80% of websites in Pakistan run on WordPress — and 90% of hacks happen due to outdated plugins. This guide covers the exact reasons and a step-by-step fix to lock down your site.",
     category: "Security Awareness",
     date: "2026-06-01",
     author: "Ahmed Hassan",
@@ -15,8 +15,8 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: "SSL Certificate Kyun Zaroori Hai? (HTTPS ka Matlab)",
-    excerpt: "Sirf padlock nahi — SSL aapke customers ka data encrypt karta hai, Google ranking improve karta hai, aur phishing attacks se bachata hai. Poori detail yahan.",
+    title: "Why Is an SSL Certificate Essential? (What HTTPS Really Means)",
+    excerpt: "It's more than just a padlock — SSL encrypts your customers' data, improves your Google search ranking, and protects against phishing attacks. Full breakdown inside.",
     category: "Best Practices",
     date: "2026-05-20",
     author: "Fatima Khan",
@@ -25,8 +25,8 @@ const blogPosts = [
   },
   {
     id: 3,
-    title: "Phishing Attacks Se Kaise Bachein? (Real Examples)",
-    excerpt: "2026 mein phishing attacks Pakistan mein 300% barhye hain. Asli email examples ke saath janiye kaise pehchanen aur apni team ko train karen.",
+    title: "How to Protect Against Phishing Attacks (Real Examples)",
+    excerpt: "Phishing attacks in Pakistan have surged 300% in 2026. Using real email examples, learn how to spot them instantly and train your team to avoid becoming a victim.",
     category: "Security Awareness",
     date: "2026-05-10",
     author: "Ali Raza",
