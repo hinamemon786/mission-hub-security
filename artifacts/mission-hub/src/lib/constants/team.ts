@@ -49,8 +49,8 @@ export const certifications = [
     name: "OSCP",
     fullName: "Offensive Security Certified Professional",
     issuer: "Offensive Security",
-    color: "#e07b00",
-    logo: "https://logo.clearbit.com/offensive-security.com",
+    color: "#1a4a7a",
+    logo: "/oscp-badge.png",
   },
   {
     name: "GPEN",

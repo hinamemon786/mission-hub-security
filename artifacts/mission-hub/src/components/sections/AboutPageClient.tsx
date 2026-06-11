@@ -139,35 +139,48 @@ export function AboutPageClient() {
                   className={`rounded-xl transition-all duration-300 text-center group relative overflow-hidden ${
                     isCEH
                       ? "p-0 border-2 bg-gradient-to-b from-[#1a1200] to-[#0a0a0f]"
+                      : cert.name === "OSCP"
+                      ? "p-0 border-2 bg-gradient-to-b from-[#00101e] to-[#0a0a0f]"
                       : "p-6 border border-[#1e1e3a] bg-[#0a0a0f] hover:border-[#00ff88]/50"
                   }`}
-                  style={isCEH ? { borderColor: "#c9a227", boxShadow: "0 0 24px #c9a22740, 0 0 6px #c9a22720" } : {}}
+                  style={
+                    isCEH
+                      ? { borderColor: "#c9a227", boxShadow: "0 0 24px #c9a22740, 0 0 6px #c9a22720" }
+                      : cert.name === "OSCP"
+                      ? { borderColor: "#4a90d9", boxShadow: "0 0 24px #4a90d940, 0 0 6px #4a90d920" }
+                      : {}
+                  }
                 >
-                  {isCEH ? (
-                    <>
-                      {/* Gold shimmer top strip */}
-                      <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#c9a227] to-transparent" />
-                      {/* Badge image — full bleed, no padding */}
-                      <div className="w-full aspect-[4/3] overflow-hidden">
-                        <img
-                          src={cert.logo}
-                          alt={cert.issuer}
-                          className="w-full h-full object-cover object-center"
-                        />
-                      </div>
-                      {/* Label area */}
-                      <div className="px-4 py-3">
-                        <div className="flex items-center justify-center gap-1.5 mb-0.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#c9a227]" />
-                          <h4 className="text-sm font-black tracking-widest text-[#c9a227] uppercase">{cert.name}</h4>
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#c9a227]" />
-                        </div>
-                        <p className="text-[11px] text-gray-300 leading-tight mb-0.5">{cert.fullName}</p>
-                        <p className="text-[10px] font-mono text-[#c9a22799]">{cert.issuer}</p>
-                      </div>
-                      {/* Gold shimmer bottom strip */}
-                      <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#c9a227] to-transparent" />
-                    </>
+                  {isCEH || cert.name === "OSCP" ? (
+                    (() => {
+                      const accent = isCEH ? "#c9a227" : "#4a90d9";
+                      return (
+                        <>
+                          {/* Accent shimmer top strip */}
+                          <div className="h-1 w-full bg-gradient-to-r from-transparent to-transparent" style={{ backgroundImage: `linear-gradient(to right, transparent, ${accent}, transparent)` }} />
+                          {/* Badge image — full bleed, no padding */}
+                          <div className="w-full aspect-[4/3] overflow-hidden">
+                            <img
+                              src={cert.logo}
+                              alt={cert.issuer}
+                              className="w-full h-full object-cover object-center"
+                            />
+                          </div>
+                          {/* Label area */}
+                          <div className="px-4 py-3">
+                            <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
+                              <h4 className="text-sm font-black tracking-widest uppercase" style={{ color: accent }}>{cert.name}</h4>
+                              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
+                            </div>
+                            <p className="text-[11px] text-gray-300 leading-tight mb-0.5">{cert.fullName}</p>
+                            <p className="text-[10px] font-mono" style={{ color: `${accent}99` }}>{cert.issuer}</p>
+                          </div>
+                          {/* Accent shimmer bottom strip */}
+                          <div className="h-0.5 w-full" style={{ backgroundImage: `linear-gradient(to right, transparent, ${accent}, transparent)` }} />
+                        </>
+                      );
+                    })()
                   ) : (
                     <>
                       <div
