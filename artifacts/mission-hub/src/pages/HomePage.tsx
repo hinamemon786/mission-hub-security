@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/sections/HeroSection";
+import { FreeScanSection } from "@/components/sections/FreeScanSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ServicesOverview } from "@/components/sections/ServicesOverview";
 import { PricingSection } from "@/components/sections/PricingSection";
@@ -10,6 +11,7 @@ export default function HomePage() {
   return (
     <main className="relative">
       <HeroSection />
+      <FreeScanSection />
       <ProcessSection />
       <ServicesOverview />
       <PricingSection />

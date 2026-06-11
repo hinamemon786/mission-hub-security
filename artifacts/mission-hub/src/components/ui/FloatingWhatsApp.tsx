@@ -4,7 +4,7 @@ import { X, MessageCircle } from "lucide-react";
 
 const WHATSAPP_NUMBER = "923001234567";
 const PRE_FILLED_MSG = encodeURIComponent(
-  "Hi Mission Hub! I need a security assessment for my website. Please contact me."
+  "Hi MH, I need pentest for my website http://example.com"
 );
 
 export function FloatingWhatsApp() {
