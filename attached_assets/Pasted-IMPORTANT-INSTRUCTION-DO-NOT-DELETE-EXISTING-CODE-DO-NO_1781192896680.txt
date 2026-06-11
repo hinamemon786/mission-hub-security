@@ -1,0 +1,130 @@
+IMPORTANT INSTRUCTION: DO NOT DELETE EXISTING CODE
+
+DO NOT delete, remove, or overwrite any existing features, components, pages, or working business logic of this website.
+
+ONLY ENHANCE, EXTEND, AND RESKIN the styling and layout while preserving all existing functionalities.
+
+1. COLOR THEME & VISUAL IDENTITY TRANSFORMATION
+
+Transform the current visual theme from the default Green & Black to a premium, high-tech, modern Cybersecurity Cyberpunk/Neon theme using these colors:
+
+Backgrounds: Deep Rich Black / Dark Slate Navy (e.g., #0A0E17).
+
+Primary Accents: Neon Gold/Yellow (e.g., #FFD700, #FFC107) and Cyberpunk Neon Pink/Red (e.g., #FF0055, #FF2E93) for Call to Actions (CTAs).
+
+Secondary Accents: Sky Blue / Electric Neon Blue (e.g., #00E5FF, #007BFF) for highlights, borders, and active glow effects.
+
+Text: Crisp White, Silver Grey, and Neon Highlights.
+
+Ensure all shadows, buttons, cards, and navigation links feature neon glowing borders/shadows (using CSS variable glows) fitting the professional cybersecurity aesthetic.
+
+2. TRUST & CREDIBILITY ENHANCEMENTS (NEW ADDITIONS)
+
+About Page Updates:
+
+Add a dedicated "Meet Our Leadership" section with a stylish placeholder for the Founder's Photo.
+
+Display Certification Badges with glowing gold borders. Badges to show: CEH (Certified Ethical Hacker), OSCP (Offensive Security Certified Professional), and ISO 27001 Certified.
+
+"Trusted By" Client Logo Section:
+
+Create a sleek, infinitely scrolling or grid-based "Trusted By" client banner on the homepage.
+
+Since cybersecurity clients are highly confidential, use clean text-logos or abstract icons with descriptive labels like: "Fortune 500 E-Commerce Firm", "Leading FinTech Platform", "International Healthcare Provider" (with an NDA Note: "Names masked under active NDA").
+
+Sample Pentest Report Download:
+
+Add a functional "Download Sample Pentest Report" CTA button in a prominent place (e.g., hero section or pricing card).
+
+Clicking this should trigger a real client-side PDF download of a beautifully formatted 3-page dummy Pentest Assessment containing executive summaries, vulnerability graphs (using mockup data), and remediation steps.
+
+Testimonials & Social Proof:
+
+Create a modern layout displaying mock Google Reviews and client testimonials with golden trust stars ($5/5$) and realistic client feedback.
+
+3. CONTENT & STRUCTURE IMPROVEMENTS
+
+Home Page Journey Banner:
+
+Add an interactive, visually stunning 3-Step Security Journey mapping out:
+1. Free Consultation ➔ 2. Deep Vulnerability Scan ➔ 3. Remediation & Certified Report.
+
+Use neon arrows, glowing step-indicators, and micro-animations to represent progress.
+
+Services Pricing:
+
+Under every listed cybersecurity service, append clear starting pricing indicators like: "Starting from PKR 15,000 / month" or a clear accent-colored "Get Custom Quote" button.
+
+Interactive 3-Tier Pricing Table:
+
+Add or update the Pricing Section to feature three distinct packages:
+
+Startup Scan (PKR 15,000): Automated Vulnerability Scan, Executive Summary PDF Report, 48-Hour Turnaround.
+
+Business Pentest (PKR 50,000) [Popular - Glow Gold Border]: Manual & Automated Pentesting, Deep Threat Intelligence, Detailed Actionable Report, 1 Free Remediation Retest.
+
+Enterprise SOC (Custom / Contact Us): 24/7/365 Monitoring, Dedicated Cybersecurity Incident Response Team, Real-Time Alerts, Compliant with ISO 27001 & SOC 2.
+
+Cybersecurity Blog Section:
+
+Populate/create a clean blog feed featuring 3 high-quality educational posts:
+
+Article 1: "WordPress Hacked Kyun Hoti Hai? 5 Common Security Blunders"
+
+Article 2: "SSL Certificates Kyun Zaroori Hain: Beyond the Green Padlock"
+
+Article 3: "Phishing Attacks Se Kaise Bachen: Essential Employee Security Checklist"
+
+4. TECHNICAL & SECURITY FIXES (VERCEL & NEXT.JS ALIGNED)
+
+Security Headers Config:
+
+Ensure the configuration includes secure HTTP response headers (e.g., X-Frame-Options: DENY, Strict-Transport-Security: max-age=63072000; includeSubDomains; preload, X-Content-Type-Options: nosniff).
+
+Contact Form Protection:
+
+Ensure the contact forms utilize safe POST actions to a secure backend endpoint / serverless function.
+
+Implement dynamic mockup client-side captcha check to block spam bots.
+
+Ensure submitted client inputs are sanitized properly.
+
+Performance & Optimization:
+
+Implement lazy loading for images and optimize asset delivery.
+
+Ensure fast load times, keeping the DOM footprint light.
+
+5. LEAD GENERATION & USER EXPERIENCE (UX)
+
+Floating WhatsApp Chat Button:
+
+Implement a persistent, glowing green/neon floating WhatsApp icon in the bottom-right corner.
+
+When clicked, it should open a conversation with the pre-filled custom text: "Hi Mission HB, I need a security pentest/consultation for my website/business."
+
+Free Automated Vulnerability Scan Lead Magnet:
+
+Add an prominent form section on the Home Page: "Claim Your Free Automated Vulnerability Scan".
+
+Prompt user for: Email Address and Website URL.
+
+Upon submitting, display a success toast message: "Scan Initiated! Check your email inbox in 10 minutes for your preliminary report."
+
+Header Emergency Hotline:
+
+Place a bold, neon-red flashing alert in the upper right header: 🚨 Emergency Security Incident? Call Now: +92-XXX-XXXXXXX (replace with placeholders or real contact details).
+
+Mobile-Optimized Sticky Bottom Bar:
+
+On mobile displays (screens < 768px), inject a sticky bottom CTA panel with a highly visible "Call / WhatsApp Helpline" button.
+
+6. FINISHING TOUCHES
+
+Footer Additions:
+
+Update the site footer copyright text to display: "ISO 27001 Aligned Process | NDA Available | Pakistan’s #1 Elite Ethical Hacking Firm".
+
+SEO Favicon & Page Title:
+
+Ensure standard SEO elements like description tags and page titles are fully customized to reflect "Mission HB - Premier Cybersecurity and Pentesting Solutions".

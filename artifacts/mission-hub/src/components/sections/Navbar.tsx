@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
-import { Menu, X, Shield, Phone, MessageCircle, AlertCircle } from "lucide-react";
+import { Menu, X, Phone, MessageCircle, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
@@ -51,11 +51,12 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 group">
-              <Shield className="w-8 h-8 text-[#00ff88] group-hover:text-[#00d4ff] transition-colors" />
-              <span className="text-xl font-bold text-white hidden sm:inline">
-                Mission Hub
-              </span>
+            <Link href="/" className="flex items-center group">
+              <img
+                src="/logo.png"
+                alt="Mission Hub"
+                className="h-12 w-auto object-contain drop-shadow-[0_0_8px_rgba(0,229,255,0.5)] group-hover:drop-shadow-[0_0_12px_rgba(0,229,255,0.8)] transition-all duration-300"
+              />
             </Link>
 
             {/* Desktop Navigation */}
