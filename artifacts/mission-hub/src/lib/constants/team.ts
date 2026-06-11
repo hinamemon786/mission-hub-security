@@ -43,7 +43,7 @@ export const certifications = [
     fullName: "Certified Ethical Hacker",
     issuer: "EC-Council",
     color: "#e63946",
-    logo: "https://logo.clearbit.com/eccouncil.org",
+    logo: "/ceh-badge.png",
   },
   {
     name: "OSCP",

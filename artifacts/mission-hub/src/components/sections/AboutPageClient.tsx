@@ -138,13 +138,13 @@ export function AboutPageClient() {
               >
                 {/* Org logo with color-tinted fallback */}
                 <div
-                  className="w-16 h-16 mx-auto mb-4 rounded-xl flex items-center justify-center overflow-hidden"
+                  className="w-20 h-20 mx-auto mb-4 rounded-xl flex items-center justify-center overflow-hidden"
                   style={{ backgroundColor: `${cert.color}15`, border: `1px solid ${cert.color}30` }}
                 >
                   <img
                     src={cert.logo}
                     alt={cert.issuer}
-                    className="w-10 h-10 object-contain"
+                    className="w-full h-full object-contain p-1"
                     onError={(e) => {
                       const img = e.currentTarget;
                       img.style.display = "none";
@@ -153,7 +153,7 @@ export function AboutPageClient() {
                     }}
                   />
                   <div
-                    className="w-10 h-10 rounded-lg items-center justify-center text-xs font-black hidden"
+                    className="w-full h-full rounded-lg items-center justify-center text-sm font-black"
                     style={{ color: cert.color, display: "none" }}
                   >
                     {cert.name.slice(0, 3)}
