@@ -1,0 +1,1 @@
+- [Mission Hub migration patterns](mission-hub-migration.md) — Next.js → Vite/React patterns for this project's cybersecurity site
