@@ -1,4 +1,5 @@
 import { Router } from "express";
+import crypto from "crypto";
 
 const router = Router();
 
@@ -9,11 +10,28 @@ router.post("/admin/login", async (req, res) => {
     return res.status(400).json({ error: "Username and password are required." });
   }
 
-  if (username === "admin" && password === "mission2024") {
+  const expectedUsername = process.env.ADMIN_USERNAME;
+  const expectedPassword = process.env.ADMIN_PASSWORD;
+
+  if (!expectedUsername || !expectedPassword) {
+    console.error("ADMIN_USERNAME or ADMIN_PASSWORD environment variables are not set.");
+    return res.status(503).json({ error: "Admin authentication is not configured." });
+  }
+
+  const usernameMatch = crypto.timingSafeEqual(
+    Buffer.from(username),
+    Buffer.from(expectedUsername)
+  );
+  const passwordMatch = crypto.timingSafeEqual(
+    Buffer.from(password),
+    Buffer.from(expectedPassword)
+  );
+
+  if (usernameMatch && passwordMatch) {
     return res.status(200).json({
       success: true,
       message: "Login successful.",
-      token: `demo-token-${Date.now()}`,
+      token: crypto.randomBytes(32).toString("hex"),
     });
   }
 
