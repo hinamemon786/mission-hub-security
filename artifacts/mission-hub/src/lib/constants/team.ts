@@ -56,8 +56,8 @@ export const certifications = [
     name: "GPEN",
     fullName: "GIAC Penetration Tester",
     issuer: "GIAC / SANS Institute",
-    color: "#2d6a4f",
-    logo: "https://logo.clearbit.com/giac.org",
+    color: "#2a5c8a",
+    logo: "/gpen-badge.png",
   },
   {
     name: "eWPT",

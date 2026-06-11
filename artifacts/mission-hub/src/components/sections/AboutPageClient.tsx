@@ -130,6 +130,7 @@ export function AboutPageClient() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-start">
             {certifications.map((cert, index) => {
               const isCEH = cert.name === "CEH";
+              const isPremium = isCEH || cert.name === "OSCP" || cert.name === "GPEN";
               return (
                 <motion.div
                   key={cert.name}
@@ -141,6 +142,8 @@ export function AboutPageClient() {
                       ? "p-0 border-2 bg-gradient-to-b from-[#1a1200] to-[#0a0a0f]"
                       : cert.name === "OSCP"
                       ? "p-0 border-2 bg-gradient-to-b from-[#00101e] to-[#0a0a0f]"
+                      : cert.name === "GPEN"
+                      ? "p-0 border-2 bg-gradient-to-b from-[#070d14] to-[#0a0a0f]"
                       : "p-6 border border-[#1e1e3a] bg-[#0a0a0f] hover:border-[#00ff88]/50"
                   }`}
                   style={
@@ -148,12 +151,14 @@ export function AboutPageClient() {
                       ? { borderColor: "#c9a227", boxShadow: "0 0 24px #c9a22740, 0 0 6px #c9a22720" }
                       : cert.name === "OSCP"
                       ? { borderColor: "#4a90d9", boxShadow: "0 0 24px #4a90d940, 0 0 6px #4a90d920" }
+                      : cert.name === "GPEN"
+                      ? { borderColor: "#7aafcf", boxShadow: "0 0 24px #7aafcf40, 0 0 6px #7aafcf20" }
                       : {}
                   }
                 >
-                  {isCEH || cert.name === "OSCP" ? (
+                  {isPremium ? (
                     (() => {
-                      const accent = isCEH ? "#c9a227" : "#4a90d9";
+                      const accent = isCEH ? "#c9a227" : cert.name === "OSCP" ? "#4a90d9" : "#7aafcf";
                       return (
                         <>
                           {/* Accent shimmer top strip */}
