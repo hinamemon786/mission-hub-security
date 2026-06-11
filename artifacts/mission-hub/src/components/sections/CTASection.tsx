@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, MessageCircle, FileText } from "lucide-react";
+import { ArrowRight, Phone, MessageCircle, FileText, Download } from "lucide-react";
 
 export function CTASection() {
   return (
@@ -44,7 +44,7 @@ export function CTASection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
           {/* Get Free Quote */}
           <Link
@@ -92,6 +92,24 @@ export function CTASection() {
             </p>
             <div className="inline-flex items-center space-x-2 text-[#7c3aed] group-hover:text-[#ff3860] transition-colors">
               <span className="text-sm font-medium">Call Now</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </a>
+
+          {/* Sample Report Download */}
+          <a
+            href="/sample-pentest-report.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group p-8 rounded-xl border border-[#ff9900]/30 bg-[#0f0f1a] hover:bg-[#ff9900]/5 hover:border-[#ff9900] transition-all duration-300"
+          >
+            <Download className="w-10 h-10 text-[#ff9900] mb-4 group-hover:scale-110 transition-transform" />
+            <h3 className="text-xl font-bold text-white mb-2">Sample Report</h3>
+            <p className="text-gray-400 text-sm mb-4">
+              Download a sample pentest report to see exactly what you'll receive.
+            </p>
+            <div className="inline-flex items-center space-x-2 text-[#ff9900] group-hover:text-[#00ff88] transition-colors">
+              <span className="text-sm font-medium">View Sample</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </a>

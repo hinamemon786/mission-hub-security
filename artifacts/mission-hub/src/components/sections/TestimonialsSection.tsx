@@ -8,7 +8,7 @@ const testimonials = [
     company: "E-Commerce",
     text: "Mission Hub found 45 critical vulnerabilities in our platform that had been there for years. Their report was detailed, professional, and the retest was completed within a week. Highly recommended.",
     rating: 5,
-    initials: "BA",
+    photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop&crop=face",
     color: "#00ff88",
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     company: "Banking & Finance",
     text: "We needed ISO 27001 aligned pentest reports for our compliance audit. Mission Hub delivered exactly that — professional, thorough, and on time. Our auditors were impressed.",
     rating: 5,
-    initials: "SM",
+    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=face",
     color: "#00d4ff",
   },
   {
@@ -26,17 +26,17 @@ const testimonials = [
     company: "Healthcare",
     text: "As a startup, we couldn't afford to ignore security. The Startup Scan package was perfect — affordable, fast, and gave us everything we needed to fix our vulnerabilities before launch.",
     rating: 5,
-    initials: "UT",
+    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
     color: "#7c3aed",
   },
 ];
 
 const clientLogos = [
-  { name: "E-Commerce Platform", industry: "Retail" },
-  { name: "Fortune 500 Fintech", industry: "Finance" },
-  { name: "Healthcare Network", industry: "Healthcare" },
-  { name: "Govt. Organization", industry: "Public Sector" },
-  { name: "SaaS Startup", industry: "Technology" },
+  { name: "E-Commerce Platform", industry: "Retail", icon: "🛒" },
+  { name: "Fortune 500 Fintech", industry: "Finance", icon: "🏦" },
+  { name: "Healthcare Network", industry: "Healthcare", icon: "🏥" },
+  { name: "Govt. Organization", industry: "Public Sector", icon: "🏛️" },
+  { name: "SaaS Startup", industry: "Technology", icon: "💻" },
 ];
 
 export function TestimonialsSection() {
@@ -57,10 +57,13 @@ export function TestimonialsSection() {
             {clientLogos.map((client, idx) => (
               <div
                 key={idx}
-                className="px-5 py-3 rounded-lg border border-[#1e1e3a] bg-[#0a0a0f] text-center"
+                className="px-5 py-3 rounded-lg border border-[#1e1e3a] bg-[#0a0a0f] text-center flex items-center space-x-3 hover:border-[#00ff88]/30 transition-all"
               >
-                <p className="text-white text-sm font-semibold">{client.name}</p>
-                <p className="text-gray-500 text-xs">{client.industry}</p>
+                <span className="text-xl">{client.icon}</span>
+                <div className="text-left">
+                  <p className="text-white text-sm font-semibold">{client.name}</p>
+                  <p className="text-gray-500 text-xs">{client.industry}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -69,7 +72,7 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Testimonials */}
+        {/* Testimonials heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -106,11 +109,24 @@ export function TestimonialsSection() {
               </p>
 
               <div className="flex items-center space-x-3">
+                <img
+                  src={t.photo}
+                  alt={t.name}
+                  className="w-12 h-12 rounded-full object-cover ring-2 flex-shrink-0"
+                  style={{ ringColor: t.color }}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = "flex";
+                  }}
+                />
+                {/* Fallback initials circle */}
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-black flex-shrink-0"
-                  style={{ backgroundColor: t.color }}
+                  className="w-12 h-12 rounded-full items-center justify-center text-sm font-bold text-black flex-shrink-0 hidden"
+                  style={{ backgroundColor: t.color, display: "none" }}
                 >
-                  {t.initials}
+                  {t.name.split(" ").map(n => n[0]).join("")}
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm">{t.name}</p>
