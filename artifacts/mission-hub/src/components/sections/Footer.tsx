@@ -111,6 +111,26 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Trust badges */}
+        <div className="border-t border-[#1e1e3a] pt-8 pb-4">
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            {[
+              "✅ ISO 27001 Aligned Process",
+              "🔒 NDA Available",
+              "🏆 Pakistan's #1 Ethical Hacking Firm",
+              "⚡ 24/7 Incident Response",
+              "📋 CEH & OSCP Certified",
+            ].map((badge) => (
+              <span
+                key={badge}
+                className="px-3 py-1.5 rounded-full text-xs border border-[#00ff88]/20 bg-[#00ff88]/5 text-gray-300"
+              >
+                {badge}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Divider */}
         <div className="border-t border-[#1e1e3a] py-8">
           {/* Social Links */}

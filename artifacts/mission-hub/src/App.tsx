@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { LenisProvider } from "@/components/ui/lenis-provider";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
 import NotFound from "@/pages/not-found";
 
 import HomePage from "@/pages/HomePage";
@@ -34,6 +35,7 @@ function Router() {
         <Route component={NotFound} />
       </Switch>
       <Footer />
+      <FloatingWhatsApp />
     </LenisProvider>
   );
 }
