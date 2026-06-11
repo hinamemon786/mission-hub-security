@@ -127,50 +127,86 @@ export function AboutPageClient() {
             <p className="text-gray-400">Industry-recognized credentials from leading organizations</p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {certifications.map((cert, index) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-xl border border-[#1e1e3a] bg-[#0a0a0f] hover:border-[#00ff88]/50 transition-all duration-300 text-center group"
-              >
-                {/* Org logo with color-tinted fallback */}
-                <div
-                  className="w-20 h-20 mx-auto mb-4 rounded-xl flex items-center justify-center overflow-hidden"
-                  style={{ backgroundColor: `${cert.color}15`, border: `1px solid ${cert.color}30` }}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-start">
+            {certifications.map((cert, index) => {
+              const isCEH = cert.name === "CEH";
+              return (
+                <motion.div
+                  key={cert.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`rounded-xl transition-all duration-300 text-center group relative overflow-hidden ${
+                    isCEH
+                      ? "p-0 border-2 bg-gradient-to-b from-[#1a1200] to-[#0a0a0f]"
+                      : "p-6 border border-[#1e1e3a] bg-[#0a0a0f] hover:border-[#00ff88]/50"
+                  }`}
+                  style={isCEH ? { borderColor: "#c9a227", boxShadow: "0 0 24px #c9a22740, 0 0 6px #c9a22720" } : {}}
                 >
-                  <img
-                    src={cert.logo}
-                    alt={cert.issuer}
-                    className="w-full h-full object-contain p-1"
-                    onError={(e) => {
-                      const img = e.currentTarget;
-                      img.style.display = "none";
-                      const fallback = img.nextElementSibling as HTMLElement;
-                      if (fallback) fallback.style.display = "flex";
-                    }}
-                  />
-                  <div
-                    className="w-full h-full rounded-lg items-center justify-center text-sm font-black"
-                    style={{ color: cert.color, display: "none" }}
-                  >
-                    {cert.name.slice(0, 3)}
-                  </div>
-                </div>
-                <h4
-                  className="text-base font-bold text-white mb-1 group-hover:transition-colors"
-                  style={{ color: "white" }}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = cert.color)}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
-                >
-                  {cert.name}
-                </h4>
-                <p className="text-xs text-gray-400 mb-1">{cert.fullName}</p>
-                <p className="text-xs font-mono" style={{ color: `${cert.color}99` }}>{cert.issuer}</p>
-              </motion.div>
-            ))}
+                  {isCEH ? (
+                    <>
+                      {/* Gold shimmer top strip */}
+                      <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#c9a227] to-transparent" />
+                      {/* Badge image — full bleed, no padding */}
+                      <div className="w-full aspect-[4/3] overflow-hidden">
+                        <img
+                          src={cert.logo}
+                          alt={cert.issuer}
+                          className="w-full h-full object-cover object-center"
+                        />
+                      </div>
+                      {/* Label area */}
+                      <div className="px-4 py-3">
+                        <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#c9a227]" />
+                          <h4 className="text-sm font-black tracking-widest text-[#c9a227] uppercase">{cert.name}</h4>
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#c9a227]" />
+                        </div>
+                        <p className="text-[11px] text-gray-300 leading-tight mb-0.5">{cert.fullName}</p>
+                        <p className="text-[10px] font-mono text-[#c9a22799]">{cert.issuer}</p>
+                      </div>
+                      {/* Gold shimmer bottom strip */}
+                      <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-[#c9a227] to-transparent" />
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        className="w-20 h-20 mx-auto mb-4 rounded-xl flex items-center justify-center overflow-hidden"
+                        style={{ backgroundColor: `${cert.color}15`, border: `1px solid ${cert.color}30` }}
+                      >
+                        <img
+                          src={cert.logo}
+                          alt={cert.issuer}
+                          className="w-full h-full object-contain p-1"
+                          onError={(e) => {
+                            const img = e.currentTarget;
+                            img.style.display = "none";
+                            const fallback = img.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = "flex";
+                          }}
+                        />
+                        <div
+                          className="w-full h-full rounded-lg items-center justify-center text-sm font-black"
+                          style={{ color: cert.color, display: "none" }}
+                        >
+                          {cert.name.slice(0, 3)}
+                        </div>
+                      </div>
+                      <h4
+                        className="text-base font-bold text-white mb-1"
+                        style={{ color: "white" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = cert.color)}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "white")}
+                      >
+                        {cert.name}
+                      </h4>
+                      <p className="text-xs text-gray-400 mb-1">{cert.fullName}</p>
+                      <p className="text-xs font-mono" style={{ color: `${cert.color}99` }}>{cert.issuer}</p>
+                    </>
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
