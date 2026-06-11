@@ -70,7 +70,7 @@ export const certifications = [
     name: "ISO 27001",
     fullName: "Information Security Management",
     issuer: "ISO / IEC",
-    color: "#7c3aed",
-    logo: "https://logo.clearbit.com/iso.org",
+    color: "#b8962e",
+    logo: "/iso-badge.png",
   },
 ];

@@ -130,7 +130,7 @@ export function AboutPageClient() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 items-start">
             {certifications.map((cert, index) => {
               const isCEH = cert.name === "CEH";
-              const isPremium = isCEH || cert.name === "OSCP" || cert.name === "GPEN" || cert.name === "eWPT";
+              const isPremium = isCEH || cert.name === "OSCP" || cert.name === "GPEN" || cert.name === "eWPT" || cert.name === "ISO 27001";
               return (
                 <motion.div
                   key={cert.name}
@@ -146,6 +146,8 @@ export function AboutPageClient() {
                       ? "p-0 border-2 bg-gradient-to-b from-[#070d14] to-[#0a0a0f]"
                       : cert.name === "eWPT"
                       ? "p-0 border-2 bg-gradient-to-b from-[#1a0505] to-[#0a0a0f]"
+                      : cert.name === "ISO 27001"
+                      ? "p-0 border-2 bg-gradient-to-b from-[#120e00] to-[#0a0a0f]"
                       : "p-6 border border-[#1e1e3a] bg-[#0a0a0f] hover:border-[#00ff88]/50"
                   }`}
                   style={
@@ -157,12 +159,14 @@ export function AboutPageClient() {
                       ? { borderColor: "#7aafcf", boxShadow: "0 0 24px #7aafcf40, 0 0 6px #7aafcf20" }
                       : cert.name === "eWPT"
                       ? { borderColor: "#e74c3c", boxShadow: "0 0 24px #e74c3c40, 0 0 6px #e74c3c20" }
+                      : cert.name === "ISO 27001"
+                      ? { borderColor: "#c9a227", boxShadow: "0 0 24px #c9a22740, 0 0 6px #c9a22720" }
                       : {}
                   }
                 >
                   {isPremium ? (
                     (() => {
-                      const accent = isCEH ? "#c9a227" : cert.name === "OSCP" ? "#4a90d9" : cert.name === "GPEN" ? "#7aafcf" : "#e74c3c";
+                      const accent = isCEH ? "#c9a227" : cert.name === "OSCP" ? "#4a90d9" : cert.name === "GPEN" ? "#7aafcf" : cert.name === "ISO 27001" ? "#c9a227" : "#e74c3c";
                       return (
                         <>
                           {/* Accent shimmer top strip */}
@@ -179,7 +183,7 @@ export function AboutPageClient() {
                           <div className="px-4 py-3">
                             <div className="flex items-center justify-center gap-1.5 mb-0.5">
                               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
-                              <h4 className="text-sm font-black tracking-widest uppercase" style={{ color: accent }}>{cert.name}</h4>
+                              <h4 className="text-sm font-black tracking-widest" style={{ color: accent, textTransform: cert.name === "eWPT" ? "none" : "uppercase" }}>{cert.name}</h4>
                               <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
                             </div>
                             <p className="text-[11px] text-gray-300 leading-tight mb-0.5">{cert.fullName}</p>
