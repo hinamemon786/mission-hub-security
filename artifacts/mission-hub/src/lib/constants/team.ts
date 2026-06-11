@@ -63,8 +63,8 @@ export const certifications = [
     name: "eWPT",
     fullName: "eLearnSecurity Web App Pentester",
     issuer: "INE Security",
-    color: "#1a6cc4",
-    logo: "https://logo.clearbit.com/ine.com",
+    color: "#c0392b",
+    logo: "/ewpt-badge.png",
   },
   {
     name: "ISO 27001",
